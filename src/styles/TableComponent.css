@@ -1,71 +1,67 @@
-/* Add custom font (ensure to include the font in your project or use a web font service like Google Fonts) */
-@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap'); /* Example of using Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
 
-/* Define light theme variables */
 :root {
   --background-color: #f9f9f9;
   --text-color: #000000;
   --header-background-color: #009879;
   --header-text-color: #ffffff;
-  --row-hover-color: #e0e0e0; /* Updated hover color for light theme */
-  --table-background-color: #ffffff; /* Uniform table background color */
+  --row-hover-color: #e0e0e0;
+  --table-background-color: #ffffff;
   --border-color: #9b9a9a;
   --box-shadow-color: rgba(246, 246, 246, 0.1);
   --last-row-border-color: #009879;
-  --name-color-light: #ff6347; /* Stylish color for name in light mode */
+  --name-color-light: #ff6347;
 }
 
-/* Define dark theme variables */
 body.dark-theme {
   --background-color: #333;
   --text-color: #ffffff;
   --header-background-color: #444;
   --header-text-color: #ffffff;
   --row-hover-color: #555;
-  --table-background-color: #333; /* Uniform table background color */
+  --table-background-color: #333;
   --border-color: #555;
   --box-shadow-color: rgba(255, 255, 255, 0.1);
   --last-row-border-color: #222;
-  --name-color-dark: #ff6347; /* Stylish color for name in dark mode */
+  --name-color-dark: #ff6347;
 }
 
 .content {
   .theme-toggle-container {
     display: flex;
-    margin: 0 10px;
+    margin: 0 20px;
     justify-content: space-between;
   }
 
   .theme-toggle-container h1 {
-    font-size: 2.5em;
-    font-family: 'Lobster', cursive; /* Use custom font */
-    font-weight: bold;
-    color: var(--name-color-light); /* Use stylish color for light mode */
+    font-size: 3em;
+    font-family: "DM Serif Display", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-style: normal;
+    color: #e1dddd !important; /* Use stylish color for dark mode */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a slight shadow for more style */
   }
 
-  body.dark-theme .theme-toggle-container h1 {
-    color: var(--name-color-dark); /* Use stylish color for dark mode */
-    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); /* Adjust shadow color for dark mode */
-  }
-
   .theme-toggle-button {
-    background: none;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 8px;
     border: none;
     cursor: pointer;
     font-size: 1.5em;
     color: var(--text-color);
   }
 
-  body.dark-theme .theme-toggle-button {
-    color: var(--text-color);
+  .theme-toggle-button-container {
+    display: flex;
+    align-items: center;
   }
 }
 
 .table-container {
   overflow-x: auto;
-  max-height: 70vh; /* Adjust height as needed */
-  margin-top: 20px;
+  max-height: 70vh;
 
   .data-table {
     width: 100%;
@@ -75,7 +71,7 @@ body.dark-theme {
     min-width: 600px;
     box-shadow: 0 2px 4px var(--box-shadow-color);
     color: var(--text-color);
-    background-color: var(--table-background-color); /* Set uniform background color */
+    background-color: var(--table-background-color);
   }
 
   .data-table thead tr {
@@ -100,13 +96,11 @@ body.dark-theme {
   }
 
   .data-table th {
-    position: sticky; /* Make headers sticky */
+    position: sticky;
     top: 0;
-    background-color: var(
-      --header-background-color
-    ); /* Ensure background color for sticky headers */
+    background-color: var(--header-background-color);
     z-index: 1;
-    cursor: pointer; /* Change cursor to indicate sortability */
+    cursor: pointer;
   }
 
   .data-table th.sort-asc::after {

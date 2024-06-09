@@ -6,7 +6,7 @@ import "../styles/ProductLayout.css"; // Ensure this is correctly imported
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 
-const TableComponent = ({ url, layout ,name}) => {
+const TableComponent = ({ url, layout, name }) => {
   const [data, setData] = useState([]);
   const [keys, setKeys] = useState([]);
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
@@ -62,16 +62,17 @@ const TableComponent = ({ url, layout ,name}) => {
       className={layout === "product" ? "product-layout" : "category-layout"}
     >
       <div className="content">
- 
         <div className="theme-toggle-container">
-        <h1>{name}</h1>
-          <button className="theme-toggle-button" onClick={toggleTheme}>
-            {isDarkTheme ? (
-              <FontAwesomeIcon icon={faMoon} />
-            ) : (
-              <FontAwesomeIcon icon={faSun} />
-            )}
-          </button>
+          <h1>{name}</h1>
+          <div className="theme-toggle-button-container">
+            <button className="theme-toggle-button" onClick={toggleTheme}>
+              {isDarkTheme ? (
+                <FontAwesomeIcon icon={faSun} />
+              ) : (
+                <FontAwesomeIcon icon={faMoon} />
+              )}
+            </button>
+          </div>
         </div>
         <div className="table-container">
           <table className="data-table">
