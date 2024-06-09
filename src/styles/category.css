@@ -1,0 +1,22 @@
+.category-layout {
+  display: flex;
+  height: 100vh;
+  margin:0 10px;
+}
+
+.content {
+  flex: 1;
+  padding: 2px;
+  overflow-y: auto;
+  transition: margin-left 0.3s;
+}
+
+@media (max-width: 767px) {
+  .sidebar-open {
+  
+  }
+
+  .sidebar-closed {
+
+  }
+}

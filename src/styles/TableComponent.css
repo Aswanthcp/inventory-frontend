@@ -1,0 +1,119 @@
+/* Add custom font (ensure to include the font in your project or use a web font service like Google Fonts) */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap'); /* Example of using Google Fonts */
+
+/* Define light theme variables */
+:root {
+  --background-color: #f9f9f9;
+  --text-color: #000000;
+  --header-background-color: #009879;
+  --header-text-color: #ffffff;
+  --row-hover-color: #e0e0e0; /* Updated hover color for light theme */
+  --table-background-color: #ffffff; /* Uniform table background color */
+  --border-color: #9b9a9a;
+  --box-shadow-color: rgba(246, 246, 246, 0.1);
+  --last-row-border-color: #009879;
+  --name-color-light: #ff6347; /* Stylish color for name in light mode */
+}
+
+/* Define dark theme variables */
+body.dark-theme {
+  --background-color: #333;
+  --text-color: #ffffff;
+  --header-background-color: #444;
+  --header-text-color: #ffffff;
+  --row-hover-color: #555;
+  --table-background-color: #333; /* Uniform table background color */
+  --border-color: #555;
+  --box-shadow-color: rgba(255, 255, 255, 0.1);
+  --last-row-border-color: #222;
+  --name-color-dark: #ff6347; /* Stylish color for name in dark mode */
+}
+
+.content {
+  .theme-toggle-container {
+    display: flex;
+    margin: 0 10px;
+    justify-content: space-between;
+  }
+
+  .theme-toggle-container h1 {
+    font-size: 2.5em;
+    font-family: 'Lobster', cursive; /* Use custom font */
+    font-weight: bold;
+    color: var(--name-color-light); /* Use stylish color for light mode */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a slight shadow for more style */
+  }
+
+  body.dark-theme .theme-toggle-container h1 {
+    color: var(--name-color-dark); /* Use stylish color for dark mode */
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3); /* Adjust shadow color for dark mode */
+  }
+
+  .theme-toggle-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5em;
+    color: var(--text-color);
+  }
+
+  body.dark-theme .theme-toggle-button {
+    color: var(--text-color);
+  }
+}
+
+.table-container {
+  overflow-x: auto;
+  max-height: 70vh; /* Adjust height as needed */
+  margin-top: 20px;
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    min-width: 600px;
+    box-shadow: 0 2px 4px var(--box-shadow-color);
+    color: var(--text-color);
+    background-color: var(--table-background-color); /* Set uniform background color */
+  }
+
+  .data-table thead tr {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    text-align: left;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+  }
+
+  .data-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .data-table tbody tr:hover {
+    background-color: var(--row-hover-color);
+    color: var(--text-color);
+  }
+
+  .data-table th {
+    position: sticky; /* Make headers sticky */
+    top: 0;
+    background-color: var(
+      --header-background-color
+    ); /* Ensure background color for sticky headers */
+    z-index: 1;
+    cursor: pointer; /* Change cursor to indicate sortability */
+  }
+
+  .data-table th.sort-asc::after {
+    content: " ⬆️";
+  }
+
+  .data-table th.sort-desc::after {
+    content: " ⬇️";
+  }
+}

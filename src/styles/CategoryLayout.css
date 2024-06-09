@@ -1,0 +1,32 @@
+.category-layout {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+
+.category-layout .content {
+  flex: 1;
+  padding: 2px;
+  overflow-y: hidden;
+  transition: margin-left 0.3s;
+  margin-left: 10px; /* Default margin for closed sidebar */
+}
+
+.category-layout .sidebar-open {
+  margin-left: 10px; /* Adjust according to the open sidebar width */
+}
+
+.category-layout .sidebar-closed {
+  margin-left: 10px; /* Adjust according to the closed sidebar width */
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+  .category-layout .content {
+    margin-left: 10px; /* Adjust according to the closed sidebar width */
+  }
+
+  .category-layout .sidebar-open,
+  .category-layout .sidebar-closed {
+    margin-left: 10px; /* Adjust according to the sidebar width */
+  }
+}

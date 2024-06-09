@@ -1,0 +1,28 @@
+/* General styles for product-layout */
+.product-layout {
+  display: flex;
+  height: 100vh;
+  margin:0 10px;
+}
+
+.product-layout .content {
+  flex: 1;
+  padding: 2px;
+  overflow-y: auto;
+  transition: margin-left 0.3s;
+}
+
+/* Media query for smaller screens */
+@media (max-width: 767px) {
+  .product-layout .content {
+    margin-left: 10px; /* Adjust according to the closed sidebar width */
+  }
+
+  .product-layout .sidebar-open {
+    margin-left: 10px; /* Adjust according to the open sidebar width */
+  }
+
+  .product-layout .sidebar-closed {
+    margin-left: 10px; /* Adjust according to the closed sidebar width */
+  }
+}

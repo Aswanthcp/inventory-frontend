@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
+import { getProducts } from "../../utils/constants";
+import TableComponent from "../../components/TableComponent";
+
+import "../../styles/product.css";
+
 const Products = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
 
@@ -11,14 +16,16 @@ const Products = () => {
   return (
     <>
       <Navbar />
-      <div className="home-layout">
+      <div className="product-layout">
         <Sidebar isOpen={isSidebarOpen} toggleSidebar={toggleSidebar} />
         <div
           className={`content ${
             isSidebarOpen ? "sidebar-open" : "sidebar-closed"
           }`}
         >
-          Products
+          <div>
+            <TableComponent url={getProducts} name="Product" />
+          </div>
         </div>
       </div>
     </>
