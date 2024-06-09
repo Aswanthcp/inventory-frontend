@@ -1,0 +1,19 @@
+.home-layout {
+  display: flex;
+  height: 100vh; /* Full viewport height */
+}
+
+.content {
+  flex: 1;
+  padding: 2px;
+  overflow-y: auto;
+  transition: margin-left 0.3s;
+}
+
+.sidebar-open {
+  margin-left: 10px; /* Width of the open sidebar */
+}
+
+.sidebar-closed {
+  margin-left: 10px; /* Width of the closed sidebar */
+}

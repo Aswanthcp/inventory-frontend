@@ -1,0 +1,72 @@
+.sidebar {
+  background-color: #111;
+  overflow-x: hidden;
+  padding-top: 16px;
+  position: -webkit-sticky; /* For Safari */
+  position: sticky;
+  top: 0;
+  height: 100vh; /* Full viewport height */
+  transition: width 0.3s;
+}
+
+.sidebar.open {
+  width: 160px; /* Full width when open */
+}
+
+.sidebar.closed {
+  width: 60px; /* Narrow width when closed */
+}
+
+.toggle-btn {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  display: block;
+  margin: 10px;
+  text-align: left;
+}
+
+.sidebar a {
+  padding: 6px 8px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: flex;
+  align-items: center;
+}
+
+.sidebar a i,
+.sidebar a svg {
+  margin-right: 8px;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0),
+    #818181,
+    rgba(0, 0, 0, 0)
+  );
+  margin: 8px 0;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Style links on mouse-over */
+.sidebar a:hover {
+  color: #f1f1f1;
+}
+
+/* Adjust layout when screen height is less than 450px */
+@media screen and (max-height: 450px) {
+  .sidebar {
+    padding-top: 15px;
+  }
+  .sidebar a {
+    font-size: 18px;
+  }
+}
