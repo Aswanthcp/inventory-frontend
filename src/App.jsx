@@ -11,6 +11,7 @@ import Login from "./pages/Login/Login";
 import Category from "./pages/Category/Category";
 import Suppliers from "./pages/Suppliers/Suppliers";
 import Products from "./pages/Products/Products";
+import Varehouse from "./pages/varehouse/Varehouse";
 
 function Logout() {
   localStorage.clear();
@@ -33,6 +34,7 @@ function App() {
           <Route path="/category" element={<Category />} />
           <Route path="/supplier" element={<Suppliers />} />
           <Route path="/product" element={<Products />} />
+          <Route path="/warehouse" element={<Varehouse />} />
         </Routes>
       </Router>
     </>

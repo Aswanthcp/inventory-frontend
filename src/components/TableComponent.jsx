@@ -1,16 +1,19 @@
 import React, { useEffect, useState } from "react";
 import api from "../utils/api";
 import "../styles/TableComponent.css";
-import "../styles/CategoryLayout.css"; // Ensure this is correctly imported
-import "../styles/ProductLayout.css"; // Ensure this is correctly imported
+import "../styles/CategoryLayout.css";
+import "../styles/ProductLayout.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
+import Pagination from "../components/Pagination";
 
 const TableComponent = ({ url, layout, name }) => {
   const [data, setData] = useState([]);
   const [keys, setKeys] = useState([]);
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
   const [isDarkTheme, setIsDarkTheme] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 3;
 
   useEffect(() => {
     getData();
@@ -20,7 +23,6 @@ const TableComponent = ({ url, layout, name }) => {
     try {
       const res = await api.get(url);
       const data = res.data;
-      console.log(data);
       if (data.length > 0) {
         const filteredKeys = Object.keys(data[0]).filter((key) => key);
         setKeys(filteredKeys);
@@ -51,6 +53,10 @@ const TableComponent = ({ url, layout, name }) => {
     });
     return sorted;
   }, [data, sortConfig]);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = sortedData.slice(indexOfFirstItem, indexOfLastItem);
 
   const toggleTheme = () => {
     setIsDarkTheme((prevTheme) => !prevTheme);
@@ -94,7 +100,7 @@ const TableComponent = ({ url, layout, name }) => {
               </tr>
             </thead>
             <tbody>
-              {sortedData.map((item, index) => (
+              {currentItems.map((item, index) => (
                 <tr key={index}>
                   {keys.map((key) => (
                     <td key={key}>{item[key]}</td>
@@ -104,6 +110,13 @@ const TableComponent = ({ url, layout, name }) => {
             </tbody>
           </table>
         </div>
+        {data.length > itemsPerPage && (
+          <Pagination
+            currentPage={currentPage}
+            totalPages={Math.ceil(sortedData.length / itemsPerPage)}
+            onPageChange={setCurrentPage}
+          />
+        )}
       </div>
     </div>
   );

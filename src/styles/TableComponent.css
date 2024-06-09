@@ -110,4 +110,5 @@ body.dark-theme {
   .data-table th.sort-desc::after {
     content: " ⬇️";
   }
+ 
 }

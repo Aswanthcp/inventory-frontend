@@ -9,6 +9,7 @@ import {
   faUser,
   faSignOutAlt,
   faLayerGroup,
+  faWarehouse,
 } from "@fortawesome/free-solid-svg-icons";
 import "../styles/sidebar.css";
 
@@ -31,6 +32,10 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
       <hr />
       <Link to="/supplier">
         <FontAwesomeIcon icon={faUser} /> {isOpen && "Supplier"}
+      </Link>
+      <hr />
+      <Link to="/warehouse">
+        <FontAwesomeIcon icon={faWarehouse} /> {isOpen && "Warehouse"}
       </Link>
       <hr />
       <Link to="/product">

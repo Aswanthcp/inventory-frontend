@@ -1,7 +1,7 @@
 .home-layout {
   display: flex;
   height: 100vh; /* Full viewport height */
-  margin:0 10px;
+  margin-right:  10px;
 }
 
 .content {
