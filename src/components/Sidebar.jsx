@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faProductHunt } from "@fortawesome/free-brands-svg-icons";
 import {
   faAngleDoubleLeft,
   faAngleDoubleRight,
@@ -28,8 +29,12 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <FontAwesomeIcon icon={faLayerGroup} /> {isOpen && "Category"}
       </Link>
       <hr />
-      <Link to="/suppliers">
+      <Link to="/supplier">
         <FontAwesomeIcon icon={faUser} /> {isOpen && "Supplier"}
+      </Link>
+      <hr />
+      <Link to="/product">
+        <FontAwesomeIcon icon={faProductHunt} /> {isOpen && "Products"}
       </Link>
       <hr />
       <Link to="/logout">

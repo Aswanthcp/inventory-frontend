@@ -10,6 +10,7 @@ import Home from "./pages/Home/Home";
 import Login from "./pages/Login/Login";
 import Category from "./pages/Category/Category";
 import Suppliers from "./pages/Suppliers/Suppliers";
+import Products from "./pages/Products/Products";
 
 function Logout() {
   localStorage.clear();
@@ -30,7 +31,8 @@ function App() {
           <Route path="/logout" element={<Logout />} />
           <Route path="/" element={<Home />} />
           <Route path="/category" element={<Category />} />
-          <Route path="/suppliers" element={<Suppliers />} />
+          <Route path="/supplier" element={<Suppliers />} />
+          <Route path="/product" element={<Products />} />
         </Routes>
       </Router>
     </>
