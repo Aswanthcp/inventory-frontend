@@ -1,4 +1,3 @@
-import { useState } from "react";
 import {
   BrowserRouter as Router,
   Route,
@@ -13,7 +12,9 @@ import Suppliers from "./pages/Suppliers/Suppliers";
 import Products from "./pages/Products/Products";
 import Varehouse from "./pages/varehouse/Varehouse";
 import CategoryCreate from "./pages/Category/CategoryCreate";
-
+import SupplierCreate from "./pages/Suppliers/SupplierCreate";
+import WarehouseCreate from "./pages/varehouse/WarehouseCreate";
+import ProductCreate from "./pages/Products/ProductCreate";
 function Logout() {
   localStorage.clear();
   return <Navigate to="/login" />;
@@ -32,14 +33,18 @@ function App() {
           <Route path="/register" element={<RegisterAndLogout />} />
           <Route path="/logout" element={<Logout />} />
           <Route path="/" element={<Home />} />
+
           <Route path="/category" element={<Category />} />
           <Route path="/category/add" element={<CategoryCreate />} />
-         
+
           <Route path="/supplier" element={<Suppliers />} />
-          
+          <Route path="/supplier/add" element={<SupplierCreate />} />
+
           <Route path="/product" element={<Products />} />
-          
+          <Route path="/product/add/" element={<ProductCreate />} />
+
           <Route path="/warehouse" element={<Varehouse />} />
+          <Route path="/warehouse/add" element={<WarehouseCreate />} />
         </Routes>
       </Router>
     </>

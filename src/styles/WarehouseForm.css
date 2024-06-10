@@ -1,4 +1,4 @@
-.supplier-layout {
+.warehouse-layout {
   display: flex;
 }
 
@@ -9,54 +9,56 @@
 }
 
 .sidebar-open {
-  margin-left: 250px; /* Adjust based on your sidebar width */
+  margin-left: 250px;
 }
 
 .sidebar-closed {
   margin-left: 0;
 }
 
-.supplier-form {
+.warehouse-form {
   max-width: 600px;
   margin: 0 auto;
 }
 
-.supplier-form h2 {
+.warehouse-form h2 {
   text-align: center;
   margin-bottom: 20px;
+  font-size: 2em;
+  font-family: "Lobster", cursive;
+  font-weight: 600;
+  color: #696969;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-right: 10px;
 }
 
-.supplier-form label {
+.warehouse-form label {
   display: block;
   margin-top: 10px;
 }
 
-.supplier-form input {
-  width: 100%; /* Make input and textarea full width */
+.warehouse-form input,
+.warehouse-form textarea {
+  width: 100%;
   padding: 10px;
   margin-top: 5px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  box-sizing: border-box; /* Ensures padding is included in the width */
+  box-sizing: border-box;
 }
 
-.supplier-form button {
+.warehouse-form button {
   display: block;
-  width: 100%; /* Make button full width */
+  width: 100%;
   padding: 10px;
   margin-top: 20px;
-  background-color: #007bff;
+  background-color: #696969;
   color: white;
   border: none;
   border-radius: 4px;
   cursor: pointer;
 }
 
-.supplier-form button:hover {
+.warehouse-form button:hover {
   background-color: #0056b3;
-}
-
-.error {
-  color: red;
-  margin-top: 5px;
 }

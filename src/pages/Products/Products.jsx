@@ -7,16 +7,17 @@ import TableComponent from "../../components/TableComponent";
 import "../../styles/product.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const Products = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
-
+  const navigate = useNavigate()
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
   const handleAddProduct = () => {
     console.log("Adding a new Product...");
-    // Add your logic here to handle adding a new Product
+    navigate("/product/add")
   };
 
   return (

@@ -6,16 +6,17 @@ import TableComponent from "../../components/TableComponent";
 import "../../styles/supplier.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useNavigate } from "react-router-dom";
 
 const Suppliers = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(true);
-
+  const navigate = useNavigate()
   const toggleSidebar = () => {
     setSidebarOpen(!isSidebarOpen);
   };
   const handleAddSupplier = () => {
     console.log("Adding a new supplier...");
-    // Add your logic here to handle adding a new supplier
+    navigate("/supplier/add");
   };
 
   return (
