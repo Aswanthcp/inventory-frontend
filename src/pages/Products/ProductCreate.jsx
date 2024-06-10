@@ -84,7 +84,7 @@ const ProductCreate = () => {
       const res = await api.post(getProducts, newProduct);
       if (res.status === 201) {
         alert("Product created successfully");
-        navigate("/products");
+        navigate("/product");
         setNewProduct({
           name: "",
           category: "",
