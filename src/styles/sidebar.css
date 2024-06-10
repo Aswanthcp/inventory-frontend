@@ -2,19 +2,19 @@
   background-color: #111;
   overflow-x: hidden;
   padding-top: 16px;
-  position: -webkit-sticky; /* For Safari */
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
-  height: 100vh; /* Full viewport height */
+  height: 100vh;
   transition: width 0.3s;
 }
 
 .sidebar.open {
-  width: 160px; /* Full width when open */
+  width: 160px;
 }
 
 .sidebar.closed {
-  width: 60px; /* Narrow width when closed */
+  width: 60px;
 }
 
 .toggle-btn {
@@ -61,12 +61,17 @@ hr {
   color: #f1f1f1;
 }
 
-/* Adjust layout when screen height is less than 450px */
 @media screen and (max-height: 450px) {
   .sidebar {
     padding-top: 15px;
   }
   .sidebar a {
     font-size: 18px;
+  }
+  .sidebar.open {
+    width: 10px !important;
+  }
+  .sidebar.closed {
+    width: 10px !important;
   }
 }

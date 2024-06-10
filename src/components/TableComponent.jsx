@@ -13,7 +13,7 @@ const TableComponent = ({ url, layout, name }) => {
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 3;
+  const itemsPerPage = 4;
 
   useEffect(() => {
     getData();
@@ -62,24 +62,18 @@ const TableComponent = ({ url, layout, name }) => {
     setIsDarkTheme((prevTheme) => !prevTheme);
     document.body.classList.toggle("dark-theme", !isDarkTheme);
   };
+  const getFieldData = (item, fieldName) => {
+    if (item && item[fieldName]) {
+      return item[fieldName].name;
+    }
+    return "";
+  };
 
   return (
     <div
       className={layout === "product" ? "product-layout" : "category-layout"}
     >
       <div className="content">
-        <div className="theme-toggle-container">
-          <h1>{name}</h1>
-          <div className="theme-toggle-button-container">
-            <button className="theme-toggle-button" onClick={toggleTheme}>
-              {isDarkTheme ? (
-                <FontAwesomeIcon icon={faSun} />
-              ) : (
-                <FontAwesomeIcon icon={faMoon} />
-              )}
-            </button>
-          </div>
-        </div>
         <div className="table-container">
           <table className="data-table">
             <thead>
@@ -103,7 +97,13 @@ const TableComponent = ({ url, layout, name }) => {
               {currentItems.map((item, index) => (
                 <tr key={index}>
                   {keys.map((key) => (
-                    <td key={key}>{item[key]}</td>
+                    <td key={key}>
+                      {key === "supplier" ||
+                      key === "warehouse" ||
+                      key === "category"
+                        ? getFieldData(item, key)
+                        : item[key]}
+                    </td>
                   ))}
                 </tr>
               ))}
@@ -117,6 +117,19 @@ const TableComponent = ({ url, layout, name }) => {
             onPageChange={setCurrentPage}
           />
         )}
+         <div className="theme-toggle-container">
+          
+          <div className="theme-toggle-button-container">
+            <button className="theme-toggle-button" onClick={toggleTheme}>
+              {isDarkTheme ? (
+                <FontAwesomeIcon icon={faSun} />
+              ) : (
+                <FontAwesomeIcon icon={faMoon} />
+              )}
+            </button>
+          </div>
+          <div></div>
+        </div>
       </div>
     </div>
   );

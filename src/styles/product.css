@@ -5,6 +5,36 @@
   margin-right: 10px;
 }
 
+.product-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.product-header h1 {
+  font-size: 3em;
+  font-family: "Lobster", cursive;
+  font-weight: 600;
+  color: #696969; /* Use stylish color for dark mode */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.add-product-button {
+  background-color:#393e46;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.add-product-button .icon {
+  margin-left: 5px;
+}
+
 .product-layout .content {
   flex: 1;
   padding: 2px;

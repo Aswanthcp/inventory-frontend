@@ -33,15 +33,7 @@ body.dark-theme {
     justify-content: space-between;
   }
 
-  .theme-toggle-container h1 {
-    font-size: 3em;
-    font-family: "DM Serif Display", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-style: normal;
-    color: #e1dddd !important; /* Use stylish color for dark mode */
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3); /* Add a slight shadow for more style */
-  }
+
 
   .theme-toggle-button {
     background-color: rgba(255, 255, 255, 0.2);
@@ -56,6 +48,7 @@ body.dark-theme {
   .theme-toggle-button-container {
     display: flex;
     align-items: center;
+    margin: 10px;
   }
 }
 

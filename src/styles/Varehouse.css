@@ -1,8 +1,39 @@
-.varehouse-layout {
+.warehouse-layout {
     display: flex;
     height: 100vh;
     margin-right:  10px;
   }
+  
+.warehouse-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.warehouse-header h1 {
+  font-size: 3em;
+  font-family: "Lobster", cursive;
+  font-weight: 600;
+  color: #696969; /* Use stylish color for dark mode */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-right: 10px; /* Adjust margin as needed */
+}
+
+.add-warehouse-button {
+  background-color: #393e46;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  padding: 10px 15px;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+}
+
+.add-warehouse-button .icon {
+  margin-left: 5px;
+}
+
   
   .content {
     flex: 1;
@@ -10,14 +41,25 @@
     overflow-y: auto;
     transition: margin-left 0.3s;
   }
+ 
+
+  .warehouse-layout .sidebar-open {
+    margin-left: 10px; /* Adjust according to the open sidebar width */
+  }
   
+  .warehouse-layout .sidebar-closed {
+    margin-left: 10px; /* Adjust according to the closed sidebar width */
+  }
+  
+  /* Media query for smaller screens */
   @media (max-width: 767px) {
-    .sidebar-open {
-    
+    .warehouse-layout .content {
+      margin-left: 10px; /* Adjust according to the closed sidebar width */
     }
   
-    .sidebar-closed {
-  
+    .warehouse-layout .sidebar-open,
+    .warehouse-layout .sidebar-closed {
+      margin-left: 10px; /* Adjust according to the sidebar width */
     }
   }
   
