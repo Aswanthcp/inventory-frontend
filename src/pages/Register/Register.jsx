@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import FormLogin from "../../components/FormLogin";
 
-function Register() {
+const Register = () => {
   return (
-    <div>Register</div>
-  )
-}
+    <div>
+      <FormLogin route="user/register/" method="register" />
+    </div>
+  );
+};
 
-export default Register
+export default Register;

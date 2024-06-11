@@ -1,9 +1,13 @@
-import React from 'react'
+import FormLogin from "../../components/FormLogin";
+
+import React from "react";
 
 const Login = () => {
   return (
-    <div>Login</div>
-  )
-}
+    <div>
+      <FormLogin route="token/" method="login" />
+    </div>
+  );
+};
 
-export default Login
+export default Login;

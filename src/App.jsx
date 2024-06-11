@@ -17,6 +17,9 @@ import WarehouseCreate from "./pages/varehouse/WarehouseCreate";
 import ProductCreate from "./pages/Products/ProductCreate";
 import SupplierProducts from "./pages/Suppliers/SupplierProducts";
 import WarehouseProducts from "./pages/varehouse/WarehouseProducts";
+import ProtectedRoute from "./components/ProtectedRoute";
+import Register from "./pages/Register/Register";
+
 function Logout() {
   localStorage.clear();
   return <Navigate to="/login" />;
@@ -32,23 +35,102 @@ function App() {
       <Router>
         <Routes>
           <Route path="/login" element={<Login />} />
+
           <Route path="/register" element={<RegisterAndLogout />} />
+
           <Route path="/logout" element={<Logout />} />
-          <Route path="/" element={<Home />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
 
-          <Route path="/category" element={<Category />} />
-          <Route path="/category/add" element={<CategoryCreate />} />
+          <Route
+            path="/category"
+            element={
+              <ProtectedRoute>
+                <Category />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/category/add"
+            element={
+              <ProtectedRoute>
+                <CategoryCreate />
+              </ProtectedRoute>
+            }
+          />
 
-          <Route path="/supplier" element={<Suppliers />} />
-          <Route path="/supplier/add" element={<SupplierCreate />} />
-          <Route path="/supplier/products" element={<SupplierProducts />} />
+          <Route
+            path="/supplier"
+            element={
+              <ProtectedRoute>
+                <Suppliers />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/supplier/add"
+            element={
+              <ProtectedRoute>
+                <SupplierCreate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/supplier/products"
+            element={
+              <ProtectedRoute>
+                <SupplierProducts />
+              </ProtectedRoute>
+            }
+          />
 
-          <Route path="/product" element={<Products />} />
-          <Route path="/product/add/" element={<ProductCreate />} />
+          <Route
+            path="/product"
+            element={
+              <ProtectedRoute>
+                <Products />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/product/add/"
+            element={
+              <ProtectedRoute>
+                <ProductCreate />
+              </ProtectedRoute>
+            }
+          />
 
-          <Route path="/warehouse" element={<Varehouse />} />
-          <Route path="/warehouse/add" element={<WarehouseCreate />} />
-          <Route path="/warehouse/products" element={<WarehouseProducts />} />
+          <Route
+            path="/warehouse"
+            element={
+              <ProtectedRoute>
+                <Varehouse />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/warehouse/add"
+            element={
+              <ProtectedRoute>
+                <WarehouseCreate />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/warehouse/products"
+            element={
+              <ProtectedRoute>
+                <WarehouseProducts />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </Router>
     </>
