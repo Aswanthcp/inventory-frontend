@@ -24,7 +24,7 @@ const TableComponent = ({ url, layout, name }) => {
       const res = await api.get(url);
       const data = res.data;
       if (data.length > 0) {
-        const filteredKeys = Object.keys(data[0]).filter((key) => key);
+        const filteredKeys = Object.keys(data[0]).filter((key) => key !== "id");
         setKeys(filteredKeys);
       }
       setData(data);
@@ -62,11 +62,22 @@ const TableComponent = ({ url, layout, name }) => {
     setIsDarkTheme((prevTheme) => !prevTheme);
     document.body.classList.toggle("dark-theme", !isDarkTheme);
   };
+
   const getFieldData = (item, fieldName) => {
     if (item && item[fieldName]) {
       return item[fieldName].name;
     }
     return "";
+  };
+
+  const onDelete = (id) => {
+    // handle delete logic here
+    console.log(`Deleting item with id: ${id}`);
+  };
+
+  const onUpdate = (id) => {
+    // handle update logic here
+    console.log(`Updating item with id: ${id}`);
   };
 
   return (
@@ -91,6 +102,7 @@ const TableComponent = ({ url, layout, name }) => {
                     {key}
                   </th>
                 ))}
+                <th>Actions</th> {/* Add Actions column header */}
               </tr>
             </thead>
             <tbody>
@@ -105,6 +117,20 @@ const TableComponent = ({ url, layout, name }) => {
                         : item[key]}
                     </td>
                   ))}
+                  <td className="button-container">
+                    <button
+                      className="update-button"
+                      onClick={() => onUpdate(item.id)}
+                    >
+                      Update
+                    </button>
+                    <button
+                      className="delete-button"
+                      onClick={() => onDelete(item.id)}
+                    >
+                      Delete
+                    </button>
+                  </td>
                 </tr>
               ))}
             </tbody>
@@ -117,8 +143,7 @@ const TableComponent = ({ url, layout, name }) => {
             onPageChange={setCurrentPage}
           />
         )}
-         <div className="theme-toggle-container">
-          
+        <div className="theme-toggle-container">
           <div className="theme-toggle-button-container">
             <button className="theme-toggle-button" onClick={toggleTheme}>
               {isDarkTheme ? (
@@ -128,7 +153,6 @@ const TableComponent = ({ url, layout, name }) => {
               )}
             </button>
           </div>
-          <div></div>
         </div>
       </div>
     </div>
