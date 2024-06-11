@@ -6,6 +6,7 @@ import "../styles/ProductLayout.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMoon, faSun } from "@fortawesome/free-solid-svg-icons";
 import Pagination from "../components/Pagination";
+import FormModal from "./FormModal";
 
 const TableComponent = ({ url, layout, name }) => {
   const [data, setData] = useState([]);
@@ -13,6 +14,8 @@ const TableComponent = ({ url, layout, name }) => {
   const [sortConfig, setSortConfig] = useState({ key: "", direction: "" });
   const [isDarkTheme, setIsDarkTheme] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [showModal, setShowModal] = useState(false);
+  const [modalData, setModalData] = useState(null);
   const itemsPerPage = 4;
 
   useEffect(() => {
@@ -71,13 +74,30 @@ const TableComponent = ({ url, layout, name }) => {
   };
 
   const onDelete = (id) => {
-    // handle delete logic here
     console.log(`Deleting item with id: ${id}`);
+    api
+      .delete(`${url}${id}`)
+      .then((res) => {
+        if (res.status === 204) {
+          alert("deleted successfully");
+          getData();
+        } else {
+          alert("something is wrong");
+        }
+      })
+      .catch((error) => {
+        alert(error);
+      });
   };
 
-  const onUpdate = (id) => {
-    // handle update logic here
-    console.log(`Updating item with id: ${id}`);
+  const onUpdate = (item) => {
+    setModalData(item);
+    setShowModal(true);
+
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
   };
 
   return (
@@ -120,7 +140,7 @@ const TableComponent = ({ url, layout, name }) => {
                   <td className="button-container">
                     <button
                       className="update-button"
-                      onClick={() => onUpdate(item.id)}
+                      onClick={() => onUpdate(item)}
                     >
                       Update
                     </button>
@@ -155,6 +175,14 @@ const TableComponent = ({ url, layout, name }) => {
           </div>
         </div>
       </div>
+      {showModal && (
+        <FormModal
+          closeModal={closeModal}
+          modalData={modalData}
+          url={url}
+          getData={getData}
+        />
+      )}
     </div>
   );
 };
