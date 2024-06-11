@@ -34,8 +34,17 @@ const Sidebar = ({ isOpen, toggleSidebar }) => {
         <FontAwesomeIcon icon={faUser} /> {isOpen && "Supplier"}
       </Link>
       <hr />
+      <Link to="/supplier/products">
+      <FontAwesomeIcon icon={faProductHunt} /> {isOpen && "Supplier Products"}
+      </Link>
+      <hr />
       <Link to="/warehouse">
         <FontAwesomeIcon icon={faWarehouse} /> {isOpen && "Warehouse"}
+      </Link>
+      <hr />
+ 
+      <Link to="/warehouse/products">
+        <FontAwesomeIcon icon={faProductHunt} /> {isOpen && "Warehouse Products"}
       </Link>
       <hr />
       <Link to="/product">

@@ -13,7 +13,6 @@ const FormModal = ({ closeModal, modalData, url, getData }) => {
     });
   };
   useEffect(() => {
-    // Fetch warehouse data when the component mounts
     fetchWarehouses();
   }, []);
   const excludedKeys = [

@@ -1,33 +1,152 @@
-.list-container {
-    padding: 10px;
-    margin: 20px 0;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+:root {
+  --background-color: #eeeeee;
+  --text-color: #000000;
+  --header-background-color: #009879;
+  --header-text-color: #ffffff;
+  --row-hover-color: #e0e0e0;
+  --table-background-color: #ffffff;
+  --border-color: #9b9a9a;
+  --box-shadow-color: rgba(246, 246, 246, 0.1);
+  --last-row-border-color: #009879;
+  --name-color-light: #ff6347;
+}
+
+body.dark-theme {
+  --background-color: #31363f;
+  --text-color: #ffffff;
+  --header-background-color: #444;
+  --header-text-color: #ffffff;
+  --row-hover-color: #555;
+  --table-background-color: #333;
+  --border-color: #555;
+  --box-shadow-color: rgba(255, 255, 255, 0.1);
+  --last-row-border-color: #222;
+  --name-color-dark: #ff6347;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  font-family: Arial, sans-serif;
+}
+
+.content {
+  margin: 20px;
+
+  .theme-toggle-container {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 10px;
   }
-  
-  .list-title {
-    color: #333;
-  }
-  
-  .list-content {
-    color: #666;
-  }
-  
-  .list-date {
-    color: #999;
-    font-size: 0.8rem;
-  }
-  
-  .delete-button {
-    background-color: #f44336; /* Red */
-    color: white;
+
+  .theme-toggle-button {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    padding: 8px;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: 1.5em;
+    color: var(--text-color);
   }
-  
+
+  .theme-toggle-button-container {
+    display: flex;
+    align-items: center;
+    margin: 10px;
+  }
+
+  .table-container {
+    overflow-x: auto;
+    max-height: 70vh;
+    background-color: var(--table-background-color);
+    box-shadow: 0 2px 4px var(--box-shadow-color);
+  }
+
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 1em;
+    min-width: 600px;
+    color: var(--text-color);
+  }
+
+  .data-table thead tr {
+    background-color: var(--header-background-color);
+    color: var(--header-text-color);
+    text-align: left;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+  }
+
+  .data-table tbody tr {
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .data-table tbody tr:hover {
+    background-color: var(--row-hover-color);
+    color: var(--text-color);
+  }
+
+  .data-table th {
+    position: sticky;
+    top: 0;
+    background-color: var(--header-background-color);
+    z-index: 1;
+    cursor: pointer;
+  }
+
+  .data-table th.sort-asc::after {
+    content: " ⬆️";
+  }
+
+  .data-table th.sort-desc::after {
+    content: " ⬇️";
+  }
+
+
+
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: auto;
+    height: 100%;
+  }
+
+  .update-button,
+  .delete-button {
+    flex: 1;
+    margin: 7px 4px;
+    padding: 8px 12px !important;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    text-align: center;
+  }
+
+  .update-button {
+    background-color: #4caf50;
+    color: white;
+  }
+
+  .update-button:hover {
+    background-color: #45a049;
+  }
+
+  .delete-button {
+    background-color: #f44336;
+    color: white;
+  }
+
   .delete-button:hover {
-    background-color: #d32f2f; /* Darker red */
+    background-color: #da190b;
   }
+}

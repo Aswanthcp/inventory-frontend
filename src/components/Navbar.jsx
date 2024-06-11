@@ -5,18 +5,7 @@ import "../styles/Navbar.css";
 const Navbar = () => {
   return (
     <nav className="navbar">
-      <ul className="nav-menu">
-        <li className="nav-item">
-          <Link to="/" className="nav-link">
-            Home
-          </Link>
-        </li>
-        <li className="nav-item">
-          <Link to="/logout" className="nav-link">
-            Logout
-          </Link>
-        </li>
-      </ul>
+      <h1> IMS</h1>
     </nav>
   );
 };

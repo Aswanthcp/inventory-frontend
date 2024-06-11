@@ -15,6 +15,8 @@ import CategoryCreate from "./pages/Category/CategoryCreate";
 import SupplierCreate from "./pages/Suppliers/SupplierCreate";
 import WarehouseCreate from "./pages/varehouse/WarehouseCreate";
 import ProductCreate from "./pages/Products/ProductCreate";
+import SupplierProducts from "./pages/Suppliers/SupplierProducts";
+import WarehouseProducts from "./pages/varehouse/WarehouseProducts";
 function Logout() {
   localStorage.clear();
   return <Navigate to="/login" />;
@@ -39,12 +41,14 @@ function App() {
 
           <Route path="/supplier" element={<Suppliers />} />
           <Route path="/supplier/add" element={<SupplierCreate />} />
+          <Route path="/supplier/products" element={<SupplierProducts />} />
 
           <Route path="/product" element={<Products />} />
           <Route path="/product/add/" element={<ProductCreate />} />
 
           <Route path="/warehouse" element={<Varehouse />} />
           <Route path="/warehouse/add" element={<WarehouseCreate />} />
+          <Route path="/warehouse/products" element={<WarehouseProducts />} />
         </Routes>
       </Router>
     </>

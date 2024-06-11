@@ -3,7 +3,7 @@ import Navbar from "../../components/Navbar";
 import Sidebar from "../../components/Sidebar";
 import { getWarehouse } from "../../utils/constants";
 import TableComponent from "../../components/TableComponent";
-import "../../styles/Varehouse.css";
+import "../../styles/Warehouse.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { useNavigate } from "react-router-dom";
